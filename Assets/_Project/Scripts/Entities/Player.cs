@@ -7,7 +7,7 @@ namespace Shtmup
 {
     public class Player : Plane
     {
-        protected override void Die()
+        protected override void Die(int cause)
         {
             //throw new NotImplementedException();
             Debug.Log("ded");

@@ -541,7 +541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5598796204584468752, guid: 5df8d85090474c344a6231ff6641de9e, type: 3}
       propertyPath: m_text
-      value: Eliminate 30 enemy planes
+      value: 'Survive enemy wave (Hard) '
       objectReference: {fileID: 0}
     - target: {fileID: 6229300166872185755, guid: 5df8d85090474c344a6231ff6641de9e, type: 3}
       propertyPath: level
@@ -910,7 +910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5598796204584468752, guid: 5df8d85090474c344a6231ff6641de9e, type: 3}
       propertyPath: m_text
-      value: Eliminate 10 enemy planes
+      value: Survive enemy wave (Normal)
       objectReference: {fileID: 0}
     - target: {fileID: 6229300166872185755, guid: 5df8d85090474c344a6231ff6641de9e, type: 3}
       propertyPath: level

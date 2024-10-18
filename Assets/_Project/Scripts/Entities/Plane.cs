@@ -17,13 +17,16 @@ namespace Shtmup
             health -= amount;
             if (health <= 0)
             {
-                Die();
+                Die(0);
             }
         }
 
 
         public float GetHealthNorm() => ((float)health / (float)maxHealth);
 
-        protected abstract void Die();
+        //Cause of death
+        // 0 -> depleted health
+        // 3 -> end of path
+        protected abstract void Die(int cause);
     }
 }

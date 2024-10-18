@@ -274,3 +274,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
+  splineAnimate: {fileID: 1992261810551119242}
