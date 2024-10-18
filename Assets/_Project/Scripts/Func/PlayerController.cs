@@ -21,7 +21,9 @@ namespace Shtmup
         Vector3 targetPosition;
         Vector3 currentVelocity;
 
-        
+        private bool _useMouseInput;
+        private Vector3 _distanceToMove;
+        private Vector3 _previousMousePosition;
 
         void Start()
         {
@@ -30,7 +32,30 @@ namespace Shtmup
 
         private void Update()
         {
-            targetPosition += new Vector3(input.Move.x, input.Move.y, 0.0f) * speed * Time.deltaTime;
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+            {
+                _useMouseInput = true;
+            }
+            else if (Input.anyKeyDown)
+            {
+                _useMouseInput = false;
+            }
+
+            if (_useMouseInput)
+            {
+                var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePosition.z = 0;
+                _distanceToMove = mousePosition - transform.position;
+                _distanceToMove = Vector3.ClampMagnitude(_distanceToMove, (speed * Time.deltaTime));
+            }
+            else
+            {
+                _distanceToMove = new Vector3(input.Move.x, input.Move.y, 0.0f) * speed * Time.deltaTime;
+            }
+            targetPosition += _distanceToMove;
+
+
+            // targetPosition += new Vector3(input.Move.x, input.Move.y, 0.0f) * speed * Time.deltaTime;
 
             var minPlayerX = camera.position.x + minX;
             var maxPlayerX = camera.position.x + maxX;
@@ -40,10 +65,15 @@ namespace Shtmup
             targetPosition.x = Mathf.Clamp(targetPosition.x, minPlayerX, maxPlayerX);
             targetPosition.y = Mathf.Clamp(targetPosition.y, minPlayerY, maxPlayerY);
 
-            //Debug.Log(targetPosition.x);
-            //Debug.Log(targetPosition.y);
-
-            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, smoothness);
+            // Smoothly move the player to the target position
+            if (_useMouseInput)
+            {
+                transform.position = targetPosition;
+            }
+            else
+            {
+                transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, smoothness);
+            }
         }
     }
 }
