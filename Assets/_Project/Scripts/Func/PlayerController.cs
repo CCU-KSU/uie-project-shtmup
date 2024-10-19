@@ -54,6 +54,10 @@ namespace Shtmup
             }
             targetPosition += _distanceToMove;
 
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Helpers.QuitGame();
+            }
 
             // targetPosition += new Vector3(input.Move.x, input.Move.y, 0.0f) * speed * Time.deltaTime;
 

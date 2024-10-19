@@ -25,13 +25,14 @@ namespace Shtmup
         float spawnTimer;
         int enemiesSpawned;
 
-        private void OnValidate()
-        {
-            splines = new List<SplineContainer>(GetComponentsInChildren<SplineContainer>());
-        }
+        //private void OnValidate()
+        //{
+        //    splines = new List<SplineContainer>(GetComponentsInChildren<SplineContainer>());
+        //}
         // Start is called before the first frame update
         void Start()
         {
+            splines = new List<SplineContainer>(GetComponentsInChildren<SplineContainer>());
             enemyFactory = new EnemyFactory();
             randEnemyType = new System.Random(EnemyTypeSeed);
             randSpline = new System.Random(PatheSeed);
@@ -71,8 +72,9 @@ namespace Shtmup
 
         void SpawnEnemy()
         {
-            
-
+            Debug.Log("Spawned");
+            Debug.LogError("Spawned");
+            Debug.Log(splines);
 
             //EnemyType enemyType = enemyTypes[UnityEngine.Random.Range(0, enemyTypes.Count)];
             //SplineContainer spline = splines[UnityEngine.Random.Range(0, splines.Count)];
