@@ -273,5 +273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c07c1a316437dd0489b64c405ebf19ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 8419413004169811328}
   maxHealth: 20
   splineAnimate: {fileID: 1992261810551119242}

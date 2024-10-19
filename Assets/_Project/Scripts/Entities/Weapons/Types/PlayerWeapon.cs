@@ -6,6 +6,7 @@ namespace Shtmup
 {
     public class PlayerWeapon : Weapon
     {
+        [SerializeField] AudioSource audioSource;
         InputReader input;
         float fireTimer;
 
@@ -28,6 +29,7 @@ namespace Shtmup
             {
                 weaponStrategy.Fire(firePoint, layer);
                 fireTimer = 0f;
+                audioSource.Play();
             }
         }
     }

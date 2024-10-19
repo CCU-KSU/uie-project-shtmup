@@ -72,9 +72,9 @@ namespace Shtmup
 
         void SpawnEnemy()
         {
-            Debug.Log("Spawned");
-            Debug.LogError("Spawned");
-            Debug.Log(splines);
+            //Debug.Log("Spawned");
+            //Debug.LogError("Spawned");
+            //Debug.Log(splines);
 
             //EnemyType enemyType = enemyTypes[UnityEngine.Random.Range(0, enemyTypes.Count)];
             //SplineContainer spline = splines[UnityEngine.Random.Range(0, splines.Count)];

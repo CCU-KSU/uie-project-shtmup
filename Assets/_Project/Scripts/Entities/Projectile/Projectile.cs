@@ -29,7 +29,7 @@ namespace Shtmup
 
         void OnCollisionEnter(Collision collision)
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
             var plane = collision.gameObject.GetComponent<Plane>();
             if (plane != null)
             {
