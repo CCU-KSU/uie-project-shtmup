@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebcebe5ce84a49749a96932c0dbc2f5e, type: 3}
   m_Name: BulletSigleShot
   m_EditorClassIdentifier: 
-  damage: 10
-  fireRate: 0.5
-  projectileSpeed: 10
-  projectileLifetime: 4
+  damage: 4
+  fireRate: 0.15
+  projectileSpeed: 9
+  projectileLifetime: 5
   projectilePrefab: {fileID: 4763544797073021275, guid: bfde062d9422f4c4ebff198cce1a15f3, type: 3}

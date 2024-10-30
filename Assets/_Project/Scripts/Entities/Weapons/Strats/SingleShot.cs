@@ -15,6 +15,7 @@ namespace Shtmup
 
             var projectileComponent = projectile.GetComponent<Projectile>();
             projectileComponent.SetSpeed(projectileSpeed);
+            projectileComponent.SetDamage(damage);
             Destroy(projectile, projectileLifetime);
         }
     }
