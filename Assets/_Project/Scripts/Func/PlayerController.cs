@@ -9,6 +9,9 @@ namespace Shtmup
     {
         [SerializeField] float speed = 5f;
         [SerializeField] float smoothness = 0.1f;
+        [SerializeField] float rollMultiplier = 15.0f;
+        [SerializeField] float yawMultiplier = 5.0f;
+        [SerializeField]  float leanSpeed = 5.0f;
         [SerializeField] GameObject model;
         [Header("Camera Bounds")]
         [SerializeField] Transform camera;
@@ -78,6 +81,20 @@ namespace Shtmup
             {
                 transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, smoothness);
             }
+
+            var targetRollAngle = _distanceToMove.normalized.x * rollMultiplier;
+            var targetYawAngle = -_distanceToMove.normalized.x * yawMultiplier;
+
+            // Smoothly interpolate to the target roll and yaw angles
+            var currentRotation = transform.localEulerAngles;
+            var targetRotation = new Vector3(
+                Mathf.LerpAngle(currentRotation.y, targetRollAngle, leanSpeed * Time.deltaTime),
+                0,
+                Mathf.LerpAngle(currentRotation.z, targetYawAngle, leanSpeed * Time.deltaTime)
+            );
+
+            // Apply the new rotation
+            transform.localEulerAngles = targetRotation;
         }
     }
 }

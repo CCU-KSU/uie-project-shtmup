@@ -7,11 +7,13 @@ namespace Shtmup
     public class Projectile : MonoBehaviour
     {
         [SerializeField] float speed;
+        [SerializeField] int damage;
         // Add Hit effects
 
         Transform parent;
 
         public void SetSpeed(float speed) => this.speed = speed;
+        public void SetDamage(int damage) => this.damage = damage;
         public void SetParent(Transform parent) => this.parent = parent;
 
         // Start is called before the first frame update
@@ -33,7 +35,7 @@ namespace Shtmup
             var plane = collision.gameObject.GetComponent<Plane>();
             if (plane != null)
             {
-                plane.TakeDamage(10);
+                plane.TakeDamage(damage);
             }
             Destroy(gameObject);
         }
